@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { CriarJogadorDto } from './dtos/criar-jogador.dto';
+import { AtualizarJogadorDto } from './dtos/atualizar-jogador.dto';
 import { Jogador } from './interfaces/jogador.interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -25,7 +26,7 @@ export class JogadoresService {
         return await jogadorCriado.save()
     }
 
-    async atualizarJogador(_id: string, criarJogadorDto: CriarJogadorDto): Promise<void> {
+    async atualizarJogador(_id: string, atualizarJogadorDto: AtualizarJogadorDto): Promise<void> {
 
         const jogadorEncontrado = await this.jogadorModel.findOne({_id}).exec();
 
@@ -34,7 +35,7 @@ export class JogadoresService {
         }
 
         await this.jogadorModel.findOneAndUpdate({_id}, 
-            {$set: criarJogadorDto}).exec()
+            {$set: atualizarJogadorDto}).exec()
     }
 
     async consultarTodosJogadores(): Promise<Jogador[]> {
