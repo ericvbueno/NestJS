@@ -4,7 +4,9 @@ import { AtualizarJogadorDto } from './dtos/atualizar-jogador.dto';
 import { JogadoresService } from './jogadores.service';
 import { Jogador } from './interfaces/jogador.interface';
 import { ValidacaoParametrosPipe } from '../common/pipes/validacao-parametros.pipe';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Jogadores')
 @Controller('api/v1/jogadores')
 export class JogadoresController {
 

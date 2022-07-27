@@ -17,9 +17,9 @@ export class CategoriasService {
 
         const { categoria } = criarCategoriaDto
 
-        const categoriaEncotrada = await this.categoriaModel.findOne({categoria}).exec();
+        const categoriaEncontrada = await this.categoriaModel.findOne({categoria}).exec();
 
-        if (categoriaEncotrada) {
+        if (categoriaEncontrada) {
             throw new BadRequestException(`Categoria ${categoria} já cadastrada!`)
         }
 

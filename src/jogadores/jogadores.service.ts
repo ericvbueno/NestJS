@@ -46,7 +46,7 @@ export class JogadoresService {
         const jogadorEncontrado = await this.jogadorModel.findOne({_id}).exec();
 
         if (!jogadorEncontrado) {
-            throw new NotFoundException(`Jogador com e-mail ${_id} não encontrado`)
+            throw new NotFoundException(`Jogador com o id ${_id} não encontrado`)
         }
         return jogadorEncontrado
     }
@@ -56,7 +56,7 @@ export class JogadoresService {
         const jogadorEncontrado = await this.jogadorModel.findOne({_id}).exec();
 
         if (!jogadorEncontrado) {
-            throw new NotFoundException(`Jogador com e-mail ${_id} não encontrado`)
+            throw new NotFoundException(`Jogador com o id ${_id} não encontrado`)
         }
 
         return await this.jogadorModel.deleteOne({_id}).exec();
